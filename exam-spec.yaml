@@ -19,6 +19,23 @@ paths:
                 items:
                   $ref: '#/components/schemas/Cars'
 
+    post:
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Cars'
+      responses:
+        '201':
+          description: Updated list of cars.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cars'
 
 components:
   schemas:
