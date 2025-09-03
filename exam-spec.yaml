@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: STD24004
+  description: This is a specification of STD24004
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8000'
+paths:
+  /cars:
+    get:
+      description: Return all cars
+      responses:
+        '200':
+          description: A list of cars.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cars'
+
+
+components:
+  schemas:
+    Characteristcs:
+      type: object
+      properties:
+        max_speed:
+          type: number
+          example: 200
+        max_fuel_capacity:
+          type: number
+          example: 50
+    Cars:
+      type: object
+      properties:
+        id:
+          type: string
+          example: p206
+        brand:
+          type: string
+          example: Peugeot
+        model:
+          type: string
+          example: Peugeot 206
+        characteristics:
+          type: object
+          items:
+            $ref: "#/components/schemas/Characteristcs"
