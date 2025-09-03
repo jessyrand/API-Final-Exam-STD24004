@@ -5,6 +5,7 @@ from starlette.responses import JSONResponse
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+@app.get("/ping")
+def ping():
+    return {"pong"}
+
